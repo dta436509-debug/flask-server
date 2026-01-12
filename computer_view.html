@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Данные компьютера {{ computer_name }}</title>
+    <meta charset="utf-8">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin: 10px 0; }
+        a { color: #0066cc; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .back { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Файлы компьютера: {{ computer_name }}</h1>
+    
+    {% if files %}
+        <ul>
+        {% for file in files %}
+            <li><a href="/{{ computer_name }}/{{ file }}">{{ file }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Нет файлов для этого компьютера.</p>
+    {% endif %}
+    
+    <div class="back">
+        <a href="/">← Назад к списку компьютеров</a>
+    </div>
+</body>
+</html>
